@@ -430,7 +430,7 @@ public class MediaUploadResponseData {
     }
   }
   
-  @JsonAdapter(State.class)
+  @JsonAdapter(State.Adapter.class)
   public enum State {
     SUCCEEDED("succeeded"),
     

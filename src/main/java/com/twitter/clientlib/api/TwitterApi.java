@@ -42,6 +42,7 @@ public class TwitterApi {
   private final SpacesApi spaces = new SpacesApi();
   private final TweetsApi tweets = new TweetsApi();
   private final UsersApi users = new UsersApi();
+  private final MediaApi media = new MediaApi();
   private ApiClient localVarApiClient = new ApiClient();
 
   public TwitterApi(TwitterCredentialsBearer credentials) {
@@ -84,6 +85,7 @@ public class TwitterApi {
     spaces.setClient(localVarApiClient);
     tweets.setClient(localVarApiClient);
     users.setClient(localVarApiClient);
+    media.setClient(localVarApiClient);
   }
 
   public BookmarksApi bookmarks() {
@@ -106,6 +108,9 @@ public class TwitterApi {
   }
   public UsersApi users() {
     return users;
+  }
+  public MediaApi media() {
+    return media;
   }
 
   public OAuth2AccessToken refreshToken() throws ApiException {
