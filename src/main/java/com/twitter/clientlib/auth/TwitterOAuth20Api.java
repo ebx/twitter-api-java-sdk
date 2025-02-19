@@ -34,15 +34,15 @@ public class TwitterOAuth20Api extends DefaultApi20 {
   }
 
   public String getAccessTokenEndpoint() {
-    return "https://api.twitter.com/2/oauth2/token";
+    return "https://api.x.com/2/oauth2/token";
   }
 
   protected String getAuthorizationBaseUrl() {
-    return "https://twitter.com/i/oauth2/authorize";
+    return "https://x.com/i/oauth2/authorize";
   }
 
   public String getRevokeTokenEndpoint() {
-    return "https://api.twitter.com/2/oauth2/revoke";
+    return "https://api.x.com/2/oauth2/revoke";
   }
 
   private static class InstanceHolder {

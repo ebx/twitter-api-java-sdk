@@ -78,7 +78,7 @@ public class ApiClient {
 
     public final static String OAUTH2_USER_TOKEN = "OAuth2UserToken";
 
-    private String basePath = "https://api.twitter.com";
+    private String basePath = "https://api.x.com";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -110,7 +110,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("BearerToken", new HttpBearerAuth("bearer"));
-        authentications.put("OAuth2UserToken", new OAuth("https://api.twitter.com/2", "/oauth2/token"));
+        authentications.put("OAuth2UserToken", new OAuth("https://api.x.com/2", "/oauth2/token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -127,7 +127,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("BearerToken", new HttpBearerAuth("bearer"));
-        authentications.put("OAuth2UserToken", new OAuth("https://api.twitter.com/2", "/oauth2/token"));
+        authentications.put("OAuth2UserToken", new OAuth("https://api.x.com/2", "/oauth2/token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }

@@ -71,7 +71,7 @@ public class TwitterApi {
 
   private void init() {
     String basePath = System.getenv("TWITTER_API_BASE_PATH");
-    localVarApiClient.setBasePath(basePath != null ? basePath : "https://api.twitter.com");
+    localVarApiClient.setBasePath(basePath != null ? basePath : "https://api.x.com");
     new SDKConfig();
     initApis();
   }
