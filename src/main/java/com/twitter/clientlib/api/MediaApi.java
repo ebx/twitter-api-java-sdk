@@ -343,8 +343,6 @@ public class MediaApi extends ApiCommon{
   <tr><td> 0 </td><td> The request has failed. </td><td>  -  </td></tr>
   </table>
    *
-   * @see
-   * <a href=https://docs.x.com/x-api/media/media-upload-status"> media upload status Documentation</a>
    */
   public APIgetMediaUploadStatusRequest getMediaUploadStatus(String mediaId) {
     return new APIgetMediaUploadStatusRequest(mediaId);
