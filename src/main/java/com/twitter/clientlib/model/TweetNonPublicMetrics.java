@@ -62,34 +62,100 @@ public class TweetNonPublicMetrics {
   public static final String SERIALIZED_NAME_IMPRESSION_COUNT = "impression_count";
   @SerializedName(SERIALIZED_NAME_IMPRESSION_COUNT)
   private Integer impressionCount;
-
-  public TweetNonPublicMetrics() { 
+  
+  public static final String SERIALIZED_NAME_ENGAGEMENTS = "engagements";
+  @SerializedName(SERIALIZED_NAME_ENGAGEMENTS)
+  private Integer engagements;
+  
+  public static final String SERIALIZED_NAME_USER_PROFILE_CLICKS = "user_profile_clicks";
+  @SerializedName(SERIALIZED_NAME_USER_PROFILE_CLICKS)
+  private Integer userProfileClicks;
+  
+  public static final String SERIALIZED_NAME_URL_LINK_CLICKS = "url_link_clicks";
+  @SerializedName(SERIALIZED_NAME_URL_LINK_CLICKS)
+  private Integer urlLinkClicks;
+  
+  public TweetNonPublicMetrics() {
   }
-
+  
   public TweetNonPublicMetrics impressionCount(Integer impressionCount) {
-    
     this.impressionCount = impressionCount;
     return this;
   }
-
-   /**
+  
+  public TweetNonPublicMetrics engagements(Integer engagements) {
+    this.engagements = engagements;
+    return this;
+  }
+  
+  public TweetNonPublicMetrics userProfileClicks(Integer userProfileClicks) {
+    this.userProfileClicks = userProfileClicks;
+    return this;
+  }
+  
+  public TweetNonPublicMetrics urlLinkClicks(Integer urlLinkClicks) {
+    this.urlLinkClicks = urlLinkClicks;
+    return this;
+  }
+  
+  /**
    * Number of times this Tweet has been viewed.
    * @return impressionCount
-  **/
+   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of times this Tweet has been viewed.")
-
+  
   public Integer getImpressionCount() {
     return impressionCount;
   }
-
-
+  
+  
   public void setImpressionCount(Integer impressionCount) {
     this.impressionCount = impressionCount;
   }
-
-
-
+  
+  /**
+   * Number of engagements with the Tweet.
+   * @return engagements
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of engagements with the Tweet.")
+  public Integer getEngagements() {
+    return engagements;
+  }
+  
+  public void setEngagements(Integer engagements) {
+    this.engagements = engagements;
+  }
+  
+  /**
+   * Number of times a user clicked on the author's profile.
+   * @return userProfileClicks
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of times a user clicked on the author's profile.")
+  public Integer getUserProfileClicks() {
+    return userProfileClicks;
+  }
+  
+  public void setUserProfileClicks(Integer userProfileClicks) {
+    this.userProfileClicks = userProfileClicks;
+  }
+  
+  /**
+   * Number of times a user clicked on a URL in the Tweet.
+   * @return urlLinkClicks
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of times a user clicked on a URL in the Tweet.")
+  public Integer getUrlLinkClicks() {
+    return urlLinkClicks;
+  }
+  
+  public void setUrlLinkClicks(Integer urlLinkClicks) {
+    this.urlLinkClicks = urlLinkClicks;
+  }
+  
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,19 +165,26 @@ public class TweetNonPublicMetrics {
       return false;
     }
     TweetNonPublicMetrics tweetNonPublicMetrics = (TweetNonPublicMetrics) o;
-    return Objects.equals(this.impressionCount, tweetNonPublicMetrics.impressionCount);
+    return Objects.equals(this.impressionCount, tweetNonPublicMetrics.impressionCount) &&
+        Objects.equals(this.engagements, tweetNonPublicMetrics.engagements) &&
+        Objects.equals(this.userProfileClicks, tweetNonPublicMetrics.userProfileClicks) &&
+        Objects.equals(this.urlLinkClicks, tweetNonPublicMetrics.urlLinkClicks);
   }
-
+  
+  
   @Override
   public int hashCode() {
-    return Objects.hash(impressionCount);
+    return Objects.hash(impressionCount, engagements, userProfileClicks, urlLinkClicks);
   }
-
+  
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TweetNonPublicMetrics {\n");
     sb.append("    impressionCount: ").append(toIndentedString(impressionCount)).append("\n");
+    sb.append("    engagements: ").append(toIndentedString(engagements)).append("\n");
+    sb.append("    userProfileClicks: ").append(toIndentedString(userProfileClicks)).append("\n");
+    sb.append("    urlLinkClicks: ").append(toIndentedString(urlLinkClicks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,6 +208,9 @@ public class TweetNonPublicMetrics {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("impression_count");
+    openapiFields.add("engagements");
+    openapiFields.add("user_profile_clicks");
+    openapiFields.add("url_link_clicks");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

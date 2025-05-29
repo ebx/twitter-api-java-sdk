@@ -74,6 +74,14 @@ public class TweetOrganicMetrics {
   public static final String SERIALIZED_NAME_RETWEET_COUNT = "retweet_count";
   @SerializedName(SERIALIZED_NAME_RETWEET_COUNT)
   private Integer retweetCount;
+  
+  public static final String SERIALIZED_NAME_USER_PROFILE_CLICKS = "user_profile_clicks";
+  @SerializedName(SERIALIZED_NAME_USER_PROFILE_CLICKS)
+  private Integer userProfileClicks;
+  
+  public static final String SERIALIZED_NAME_URL_LINK_CLICKS = "url_link_clicks";
+  @SerializedName(SERIALIZED_NAME_URL_LINK_CLICKS)
+  private Integer urlLinkClicks;
 
   public TweetOrganicMetrics() { 
   }
@@ -83,8 +91,19 @@ public class TweetOrganicMetrics {
     this.impressionCount = impressionCount;
     return this;
   }
-
-   /**
+  
+  public TweetOrganicMetrics userProfileClicks(Integer userProfileClicks) {
+    this.userProfileClicks = userProfileClicks;
+    return this;
+  }
+  
+  public TweetOrganicMetrics urlLinkClicks(Integer urlLinkClicks) {
+    this.urlLinkClicks = urlLinkClicks;
+    return this;
+  }
+  
+  
+  /**
    * Number of times this Tweet has been viewed.
    * @return impressionCount
   **/
@@ -168,8 +187,34 @@ public class TweetOrganicMetrics {
   public void setRetweetCount(Integer retweetCount) {
     this.retweetCount = retweetCount;
   }
-
-
+  
+  /**
+   * Number of times a user clicked on the author's profile.
+   * @return userProfileClicks
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of times a user clicked on the author's profile.")
+  public Integer getUserProfileClicks() {
+    return userProfileClicks;
+  }
+  
+  public void setUserProfileClicks(Integer userProfileClicks) {
+    this.userProfileClicks = userProfileClicks;
+  }
+  
+  /**
+   * Number of times a user clicked on a URL in the Tweet.
+   * @return urlLinkClicks
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of times a user clicked on a URL in the Tweet.")
+  public Integer getUrlLinkClicks() {
+    return urlLinkClicks;
+  }
+  
+  public void setUrlLinkClicks(Integer urlLinkClicks) {
+    this.urlLinkClicks = urlLinkClicks;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -183,12 +228,15 @@ public class TweetOrganicMetrics {
     return Objects.equals(this.impressionCount, tweetOrganicMetrics.impressionCount) &&
         Objects.equals(this.likeCount, tweetOrganicMetrics.likeCount) &&
         Objects.equals(this.replyCount, tweetOrganicMetrics.replyCount) &&
-        Objects.equals(this.retweetCount, tweetOrganicMetrics.retweetCount);
+        Objects.equals(this.retweetCount, tweetOrganicMetrics.retweetCount) &&
+        Objects.equals(this.userProfileClicks, tweetOrganicMetrics.userProfileClicks) &&
+        Objects.equals(this.urlLinkClicks, tweetOrganicMetrics.urlLinkClicks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impressionCount, likeCount, replyCount, retweetCount);
+    return Objects.hash(impressionCount, likeCount, replyCount, retweetCount,
+                        userProfileClicks, urlLinkClicks);
   }
 
   @Override
@@ -199,6 +247,8 @@ public class TweetOrganicMetrics {
     sb.append("    likeCount: ").append(toIndentedString(likeCount)).append("\n");
     sb.append("    replyCount: ").append(toIndentedString(replyCount)).append("\n");
     sb.append("    retweetCount: ").append(toIndentedString(retweetCount)).append("\n");
+    sb.append("    userProfileClicks: ").append(toIndentedString(userProfileClicks)).append("\n");
+    sb.append("    urlLinkClicks: ").append(toIndentedString(urlLinkClicks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -225,6 +275,8 @@ public class TweetOrganicMetrics {
     openapiFields.add("like_count");
     openapiFields.add("reply_count");
     openapiFields.add("retweet_count");
+    openapiFields.add("user_profile_clicks");
+    openapiFields.add("url_link_clicks");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
