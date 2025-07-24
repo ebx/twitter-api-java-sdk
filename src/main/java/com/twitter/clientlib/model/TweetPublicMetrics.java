@@ -74,6 +74,14 @@ public class TweetPublicMetrics {
   public static final String SERIALIZED_NAME_RETWEET_COUNT = "retweet_count";
   @SerializedName(SERIALIZED_NAME_RETWEET_COUNT)
   private Integer retweetCount;
+  
+  public static final String SERIALIZED_NAME_BOOKMARK_COUNT = "bookmark_count";
+  @SerializedName(SERIALIZED_NAME_BOOKMARK_COUNT)
+  private Integer bookmarkCount;
+  
+  public static final String SERIALIZED_NAME_IMPRESSION_COUNT = "impression_count";
+  @SerializedName(SERIALIZED_NAME_IMPRESSION_COUNT)
+  private Integer impressionCount;
 
   public TweetPublicMetrics() { 
   }
@@ -168,8 +176,39 @@ public class TweetPublicMetrics {
   public void setRetweetCount(Integer retweetCount) {
     this.retweetCount = retweetCount;
   }
-
-
+  
+  
+  /**
+   * Number of times this Tweet has been Bookmarked.
+   * @return bookmarkCount
+   **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Number of times this Tweet has been Bookmarked.")
+  
+  public Integer getBookmarkCount() {
+    return bookmarkCount;
+  }
+  
+  
+  public void setBookmarkCount(Integer bookmarkCount) {
+    this.bookmarkCount = bookmarkCount;
+  }
+  
+  /**
+   * Number of times this Tweet has been viewed.
+   * @return impressionCount
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of times this Tweet has been viewed.")
+  
+  public Integer getImpressionCount() {
+    return impressionCount;
+  }
+  
+  
+  public void setImpressionCount(Integer impressionCount) {
+    this.impressionCount = impressionCount;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -183,12 +222,15 @@ public class TweetPublicMetrics {
     return Objects.equals(this.likeCount, tweetPublicMetrics.likeCount) &&
         Objects.equals(this.quoteCount, tweetPublicMetrics.quoteCount) &&
         Objects.equals(this.replyCount, tweetPublicMetrics.replyCount) &&
-        Objects.equals(this.retweetCount, tweetPublicMetrics.retweetCount);
+        Objects.equals(this.retweetCount, tweetPublicMetrics.retweetCount) &&
+        Objects.equals(this.bookmarkCount, tweetPublicMetrics.bookmarkCount) &&
+        Objects.equals(this.impressionCount, tweetPublicMetrics.impressionCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(likeCount, quoteCount, replyCount, retweetCount);
+    return Objects.hash(likeCount, quoteCount, replyCount, retweetCount, bookmarkCount,
+        impressionCount);
   }
 
   @Override
@@ -199,6 +241,8 @@ public class TweetPublicMetrics {
     sb.append("    quoteCount: ").append(toIndentedString(quoteCount)).append("\n");
     sb.append("    replyCount: ").append(toIndentedString(replyCount)).append("\n");
     sb.append("    retweetCount: ").append(toIndentedString(retweetCount)).append("\n");
+    sb.append("    bookmarkCount: ").append(toIndentedString(bookmarkCount)).append("\n");
+    sb.append("    impressionCount: ").append(toIndentedString(impressionCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -225,6 +269,8 @@ public class TweetPublicMetrics {
     openapiFields.add("quote_count");
     openapiFields.add("reply_count");
     openapiFields.add("retweet_count");
+    openapiFields.add("bookmark_count");
+    openapiFields.add("impression_count");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
