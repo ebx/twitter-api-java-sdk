@@ -317,8 +317,6 @@ public class MediaUploadInitializeRequest {
     
     VIDEO_QUICKTIME("video/quicktime"),
     
-    VIDEO_MOVE("video/mov"),
-    
     TEXT_SRT("text/srt"),
     
     TEXT_VVT("text/vtt"),
