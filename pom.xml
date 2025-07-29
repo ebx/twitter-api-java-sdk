@@ -28,16 +28,16 @@
         </license>
     </licenses>
     <distributionManagement>
-<!--      <snapshotRepository>-->
-<!--        <id>sonatype-snapshots</id>-->
-<!--        <name>Sonatype Snapshots OSSRH</name>-->
-<!--        <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-<!--      </snapshotRepository>-->
-        <repository>
-            <id>echobox-ebx-core</id>
-            <name>echobox-ebx-core</name>
-            <url>https://echobox-060610571733.d.codeartifact.eu-west-1.amazonaws.com/maven/ebx-core/</url>
-        </repository>
+      <snapshotRepository>
+        <id>sonatype-snapshots</id>
+        <name>Sonatype Snapshots OSSRH</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <repository>
+        <id>sonatype-staging</id>
+        <name>Sonatype Staging OSSRH</name>
+        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
     </distributionManagement>
     <build>
         <plugins>
@@ -233,42 +233,42 @@
     </build>
 
     <profiles>
-<!--        <profile>-->
-<!--            <id>release</id>-->
-<!--            <build>-->
-<!--                <plugins>-->
-<!--                    <plugin>-->
-<!--                      <groupId>org.sonatype.plugins</groupId>-->
-<!--                      <artifactId>nexus-staging-maven-plugin</artifactId>-->
-<!--                      <version>1.6.7</version>-->
-<!--                      <extensions>true</extensions>-->
-<!--                      <configuration>-->
-<!--                        <serverId>ossrh</serverId>-->
-<!--                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-<!--                        <autoReleaseAfterClose>false</autoReleaseAfterClose>-->
-<!--                      </configuration>-->
-<!--                    </plugin>-->
-<!--                    <plugin>-->
-<!--                        <groupId>org.apache.maven.plugins</groupId>-->
-<!--                        <artifactId>maven-gpg-plugin</artifactId>-->
-<!--                        <version>3.0.1</version>-->
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <id>sign-artifacts</id>-->
-<!--                                <phase>verify</phase>-->
-<!--                                <goals>-->
-<!--                                    <goal>sign</goal>-->
-<!--                                </goals>-->
-<!--                                <configuration>-->
-<!--                                    <keyname>${gpg.keyname}</keyname>-->
-<!--                                    <passphraseServerId>${gpg.passphrase}</passphraseServerId>-->
-<!--                                </configuration>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-<!--                    </plugin>-->
-<!--                </plugins>-->
-<!--            </build>-->
-<!--        </profile>-->
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                      <groupId>org.sonatype.plugins</groupId>
+                      <artifactId>nexus-staging-maven-plugin</artifactId>
+                      <version>1.6.7</version>
+                      <extensions>true</extensions>
+                      <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                      </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <keyname>${gpg.keyname}</keyname>
+                                    <passphraseServerId>${gpg.passphrase}</passphraseServerId>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <dependencies>
