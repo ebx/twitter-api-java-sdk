@@ -87,18 +87,15 @@ public class OAuth implements Authentication {
     }
 
     public OAuth2AccessToken renewAccessToken() throws ApiException {
-      final OAuth2AccessToken previousToken = this.accessToken;
       String refreshToken = null;
-      if (previousToken != null) {
-        refreshToken = previousToken.getRefreshToken();
-        accessToken = null;
+      if (this.accessToken != null) {
+        refreshToken = this.accessToken.getRefreshToken();
       }
-      try {
-        return obtainAccessToken(refreshToken);
-      } catch (ApiException e) {
-        this.accessToken = previousToken;
-        throw e;
+      OAuth2AccessToken newToken = obtainAccessToken(refreshToken);
+      if (newToken != null) {
+        this.accessToken = newToken;
       }
+      return newToken;
     }
 
     public synchronized OAuth2AccessToken obtainAccessToken(String refreshToken) throws ApiException {
