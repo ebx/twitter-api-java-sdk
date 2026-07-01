@@ -660,6 +660,7 @@ public class JSON {
         if (null == element) {
             throw new IllegalArgumentException("missing discriminator field: <" + discriminatorField + ">");
         }
+        // EBX fork patch: re-apply after OpenAPI regeneration. X API may return api.x.com problem URLs.
         return Problem.normalizeProblemType(element.getAsString());
     }
 

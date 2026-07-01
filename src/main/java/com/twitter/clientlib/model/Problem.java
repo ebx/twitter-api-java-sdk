@@ -387,6 +387,11 @@ public class Problem {
 
   /**
    * X API responses may use {@code api.x.com} problem type URLs instead of {@code api.twitter.com}.
+   * Maps known {@code api.x.com} problem type URLs to their {@code api.twitter.com} equivalents so
+   * GsonFire discriminator selection and {@link #validateJsonObject(JsonObject)} accept both forms.
+   *
+   * @param type the raw {@code type} field value from an API error object
+   * @return the normalized type value used by this SDK's discriminator mappings
    */
   public static String normalizeProblemType(String type) {
     if (type != null && type.startsWith(X_PROBLEM_TYPE_PREFIX)) {
