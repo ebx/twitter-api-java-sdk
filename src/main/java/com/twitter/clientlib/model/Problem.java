@@ -77,6 +77,9 @@ import com.twitter.clientlib.JSON;
 @ApiModel(description = "An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Problem {
+  private static final String X_PROBLEM_TYPE_PREFIX = "https://api.x.com/2/problems/";
+  private static final String TWITTER_PROBLEM_TYPE_PREFIX = "https://api.twitter.com/2/problems/";
+
   public static final String SERIALIZED_NAME_DETAIL = "detail";
   @SerializedName(SERIALIZED_NAME_DETAIL)
   private String detail;
@@ -266,7 +269,7 @@ public class Problem {
      //   }
      // }
 
-      String discriminatorValue = jsonObj.get("type").getAsString();
+      String discriminatorValue = normalizeProblemType(jsonObj.get("type").getAsString());
       switch (discriminatorValue) {
         case "ClientDisconnectedProblem":
           ClientDisconnectedProblem.validateJsonObject(jsonObj);
@@ -381,6 +384,21 @@ public class Problem {
       }
   }
 
+
+  /**
+   * X API responses may use {@code api.x.com} problem type URLs instead of {@code api.twitter.com}.
+   * Maps known {@code api.x.com} problem type URLs to their {@code api.twitter.com} equivalents so
+   * GsonFire discriminator selection and {@link #validateJsonObject(JsonObject)} accept both forms.
+   *
+   * @param type the raw {@code type} field value from an API error object
+   * @return the normalized type value used by this SDK's discriminator mappings
+   */
+  public static String normalizeProblemType(String type) {
+    if (type != null && type.startsWith(X_PROBLEM_TYPE_PREFIX)) {
+      return TWITTER_PROBLEM_TYPE_PREFIX + type.substring(X_PROBLEM_TYPE_PREFIX.length());
+    }
+    return type;
+  }
 
  /**
   * Create an instance of Problem given an JSON string
