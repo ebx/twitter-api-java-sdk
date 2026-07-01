@@ -30,6 +30,7 @@ import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
+import com.twitter.clientlib.model.Problem;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
@@ -659,7 +660,7 @@ public class JSON {
         if (null == element) {
             throw new IllegalArgumentException("missing discriminator field: <" + discriminatorField + ">");
         }
-        return element.getAsString();
+        return Problem.normalizeProblemType(element.getAsString());
     }
 
     /**
