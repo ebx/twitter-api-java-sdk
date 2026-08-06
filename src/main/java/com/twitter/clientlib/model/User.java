@@ -116,6 +116,10 @@ public class User {
   @SerializedName(SERIALIZED_NAME_VERIFIED)
   private Boolean verified;
 
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_TYPE = "subscription_type";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_TYPE)
+  private String subscriptionType;
+
   public static final String SERIALIZED_NAME_WITHHELD = "withheld";
   @SerializedName(SERIALIZED_NAME_WITHHELD)
   private UserWithheld withheld;
@@ -422,6 +426,29 @@ public class User {
   }
 
 
+  public User subscriptionType(String subscriptionType) {
+    
+    this.subscriptionType = subscriptionType;
+    return this;
+  }
+
+   /**
+   * The X subscription type for this User, if available.
+   * @return subscriptionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The X subscription type for this User, if available.")
+
+  public String getSubscriptionType() {
+    return subscriptionType;
+  }
+
+
+  public void setSubscriptionType(String subscriptionType) {
+    this.subscriptionType = subscriptionType;
+  }
+
+
   public User withheld(UserWithheld withheld) {
     
     this.withheld = withheld;
@@ -468,12 +495,13 @@ public class User {
         Objects.equals(this.url, user.url) &&
         Objects.equals(this.username, user.username) &&
         Objects.equals(this.verified, user.verified) &&
+        Objects.equals(this.subscriptionType, user.subscriptionType) &&
         Objects.equals(this.withheld, user.withheld);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, entities, id, location, name, pinnedTweetId, profileImageUrl, _protected, publicMetrics, url, username, verified, withheld);
+    return Objects.hash(createdAt, description, entities, id, location, name, pinnedTweetId, profileImageUrl, _protected, publicMetrics, url, username, verified, subscriptionType, withheld);
   }
 
   @Override
@@ -493,6 +521,7 @@ public class User {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
+    sb.append("    subscriptionType: ").append(toIndentedString(subscriptionType)).append("\n");
     sb.append("    withheld: ").append(toIndentedString(withheld)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -529,6 +558,7 @@ public class User {
     openapiFields.add("url");
     openapiFields.add("username");
     openapiFields.add("verified");
+    openapiFields.add("subscription_type");
     openapiFields.add("withheld");
 
     // a set of required properties/fields (JSON key names)
